@@ -9,6 +9,9 @@ main() {
     cross)
       docker run --rm -v "$PWD":/app -w /app qapi/gocker cross
       ;;
+    lambda)
+      docker run --rm -v "$PWD":/app -w /app qapi/gocker lambda
+      ;;
     static)
       docker run --rm -v "$PWD":/app -w /app qapi/gocker static
       ;;

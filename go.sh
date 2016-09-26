@@ -92,6 +92,14 @@ case "$1" in
       chmod -R a+rw $wd/bin
 #      ls -al $wd/bin
       ;;
+  lambda)  echo  "AWS Lambda compatibile compiling..."
+      export GOOS=linux
+      export GOARCH=amd64
+      go build -o bin/aws-app
+      cp -r bin $wd
+      chmod -R a+rw $wd/bin
+#      ls -al $wd/bin
+      ;;
   static) echo  "Building static binary..."
       CGO_ENABLED=0 go build -a --installsuffix cgo --ldflags="-s" -o static
       cp static $wd
